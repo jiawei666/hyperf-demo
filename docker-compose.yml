@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+
+  hyperf:
+    build: .
+    tty: true
+    container_name: filecoin1
+    ports: # 端口映射
+      - "9501:9501"
+    volumes:  # 文件映射
+      - .:/opt/www
+    networks:   #网络设置静态IP
+      my_network:
+        ipv4_address: 172.22.0.2
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql57-2
+    ports:
+      - "3308:3306"
+    command: [
+      '--character-set-server=utf8mb4',
+      '--collation-server=utf8mb4_unicode_ci'
+    ]
+    environment:
+      MYSQL_ROOT_PASSWORD: "Root1234."
+    networks:
+      my_network:
+        ipv4_address: 172.22.0.3
+
+  redis:
+    image: redis
+    container_name: redis-1
+    command: [
+       '--requirepass 123456'
+    ]
+    networks:
+      my_network:
+        ipv4_address: 172.22.0.4
+
+networks:   #网络设置
+  my_network:
+    driver: bridge  #网桥模式
+    ipam:
+      config:
+        - subnet: 172.22.0.0/24   #子网
+          gateway: 172.22.0.1   #网关
+
+

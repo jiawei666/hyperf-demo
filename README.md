@@ -1,7 +1,7 @@
 ### 项目概述
 
-- 产品名称：`filecoin`
-- 介绍：星云FileCoin项目，基于[Hyperf](https://github.com/hyperf/hyperf)
+- 产品名称：`Hyperf Demo`
+- 介绍：基于[Hyperf](https://github.com/hyperf/hyperf)
 
 ### 运行环境要求
 
@@ -27,11 +27,11 @@
 
 1. 克隆代码到本地
      ```shell script
-    git clone git@github.com:jiawei666/filecoin.git
+    git clone git@github.com:jiawei666/hyperf-demo.git
     ```
 2. 进入项目目录
     ```shell script
-    cd filecoin
+    cd hyperf-demo
     ```
 
 3. 构建`docker-compose`编排容器（包含了`mysql`、`redis`，详情查看`docker-compose.yml`文件）
@@ -46,7 +46,7 @@
 
 5. 进入项目容器
     ```shell script
-    docker-compose exec -it filecoin /bin/sh
+    docker-compose exec -it hyperf-demo /bin/sh
     ```
 
 6. 配置oauth
@@ -93,7 +93,7 @@
     ```
 2. 进入项目目录
     ```shell script
-    cd filecoin
+    cd hyperf-demo
     ```
 
 3. 安装依赖包
